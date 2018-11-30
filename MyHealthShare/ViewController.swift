@@ -29,7 +29,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        self.title = "My Health Share"
+        tableView.layoutMargins = UIEdgeInsets.zero // [※1] separatorsを端から端まで伸ばす
+        tableView.separatorInset = UIEdgeInsets.zero // [※1] separatorsを端から端まで伸ばす
+        tableView.separatorColor = UIColor.clear
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 60
@@ -113,6 +116,8 @@ open class UserCell: UITableViewCell, CellDequeueable
     }
     
     func configure(nickName: String, stepCount: Int) {
+        self.layoutMargins = UIEdgeInsets.zero
+        self.selectionStyle = .none
         self.UserNameText.text = nickName
         self.StepCount.text = String(stepCount) + "歩"
         switch stepCount {

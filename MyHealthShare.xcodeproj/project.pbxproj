@@ -20,6 +20,11 @@
 		7678CDA921B0D3B100939C43 /* FirebaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDA821B0D3B100939C43 /* FirebaseUtil.swift */; };
 		7678CDAB21B0D68E00939C43 /* CellDequeueable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDAA21B0D68E00939C43 /* CellDequeueable.swift */; };
 		7678CDAD21B0D6B200939C43 /* IdentifierGettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDAC21B0D6B200939C43 /* IdentifierGettable.swift */; };
+		7678CDAF21B0E09100939C43 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDAE21B0E09000939C43 /* Alamofire.framework */; };
+		7678CDB321B0E0AD00939C43 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDB021B0E0AD00939C43 /* RxSwift.framework */; };
+		7678CDB421B0E0AD00939C43 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDB121B0E0AD00939C43 /* RxBlocking.framework */; };
+		7678CDB521B0E0AD00939C43 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDB221B0E0AD00939C43 /* RxCocoa.framework */; };
+		7678CDB721B0E3DB00939C43 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDB621B0E3DB00939C43 /* Date+Ext.swift */; };
 		8C83BE9F5243A7582E805450 /* Pods_MyHealthShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C7B2C0D099AA2C2378B1A2 /* Pods_MyHealthShare.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +58,11 @@
 		7678CDA821B0D3B100939C43 /* FirebaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUtil.swift; sourceTree = "<group>"; };
 		7678CDAA21B0D68E00939C43 /* CellDequeueable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDequeueable.swift; sourceTree = "<group>"; };
 		7678CDAC21B0D6B200939C43 /* IdentifierGettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierGettable.swift; sourceTree = "<group>"; };
+		7678CDAE21B0E09000939C43 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		7678CDB021B0E0AD00939C43 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		7678CDB121B0E0AD00939C43 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		7678CDB221B0E0AD00939C43 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		7678CDB621B0E3DB00939C43 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		C8C7B2C0D099AA2C2378B1A2 /* Pods_MyHealthShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHealthShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF4087C49A48DD08D457811 /* Pods-MyHealthShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHealthShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7678CDB321B0E0AD00939C43 /* RxSwift.framework in Frameworks */,
+				7678CDB421B0E0AD00939C43 /* RxBlocking.framework in Frameworks */,
+				7678CDB521B0E0AD00939C43 /* RxCocoa.framework in Frameworks */,
+				7678CDAF21B0E09100939C43 /* Alamofire.framework in Frameworks */,
 				8C83BE9F5243A7582E805450 /* Pods_MyHealthShare.framework in Frameworks */,
 				7678CDA521B0CF3100939C43 /* HealthKit.framework in Frameworks */,
 			);
@@ -89,6 +103,10 @@
 		44C58AC0F6C0FCEA7A377734 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7678CDB121B0E0AD00939C43 /* RxBlocking.framework */,
+				7678CDB221B0E0AD00939C43 /* RxCocoa.framework */,
+				7678CDB021B0E0AD00939C43 /* RxSwift.framework */,
+				7678CDAE21B0E09000939C43 /* Alamofire.framework */,
 				7678CDA421B0CF3100939C43 /* HealthKit.framework */,
 				C8C7B2C0D099AA2C2378B1A2 /* Pods_MyHealthShare.framework */,
 			);
@@ -126,6 +144,7 @@
 				7678CDA821B0D3B100939C43 /* FirebaseUtil.swift */,
 				7678CDAA21B0D68E00939C43 /* CellDequeueable.swift */,
 				7678CDAC21B0D6B200939C43 /* IdentifierGettable.swift */,
+				7678CDB621B0E3DB00939C43 /* Date+Ext.swift */,
 				7678CD8221B0C86900939C43 /* Main.storyboard */,
 				7678CD8521B0C86B00939C43 /* Assets.xcassets */,
 				7678CD8721B0C86B00939C43 /* LaunchScreen.storyboard */,
@@ -281,6 +300,9 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -326,6 +348,7 @@
 				7678CDAD21B0D6B200939C43 /* IdentifierGettable.swift in Sources */,
 				7678CD9F21B0CAFD00939C43 /* HealthUtil.swift in Sources */,
 				7678CDA921B0D3B100939C43 /* FirebaseUtil.swift in Sources */,
+				7678CDB721B0E3DB00939C43 /* Date+Ext.swift in Sources */,
 				7678CD8121B0C86900939C43 /* ViewController.swift in Sources */,
 				7678CDA121B0CB0D00939C43 /* SlackUtil.swift in Sources */,
 				7678CDAB21B0D68E00939C43 /* CellDequeueable.swift in Sources */,
@@ -495,6 +518,10 @@
 				CODE_SIGN_ENTITLEMENTS = MyHealthShare/MyHealthShare.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6A5KP29BP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MyHealthShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,6 +542,10 @@
 				CODE_SIGN_ENTITLEMENTS = MyHealthShare/MyHealthShare.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6A5KP29BP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MyHealthShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -10,6 +10,11 @@ import UIKit
 import SwiftGifOrigin
 import RxSwift
 
+struct UserCellInfo {
+    var user: User?
+    var health: HealthData?
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet var backgroundView: UIView!
@@ -22,12 +27,7 @@ class ViewController: UIViewController {
     private lazy var firebaseUtil = {FirebaseUtil.shared}()
     private lazy var healthUtil = {HealthUtil.shared}()
     private lazy var slackUtil = {SlackUtil.shared}()
-    
-    struct UserCellInfo {
-        var user: User?
-        var health: HealthData?
-    }
-    
+
     var users = [UserCellInfo]()
     lazy var viewModel = { return ViewModel() }()
     
@@ -113,7 +113,7 @@ extension ViewController: UITableViewDataSource
 {
     public func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell {
         let cell = UserCell.dequeue(from: tableView, for: cellForRowAt)
-        cell.configure(nickName: users[cellForRowAt.row].user?.nickname ?? "***", stepCount: 100, enagyBurn: "3000")
+        cell.configure(users[cellForRowAt.row])
         
         return cell
     }
@@ -150,20 +150,24 @@ open class UserCell: UITableViewCell, CellDequeueable
         // Configure the view for the selected state
     }
     
-    func configure(nickName: String, stepCount: Int, enagyBurn: String) {
+    func configure(_ info: UserCellInfo) {
         self.layoutMargins = UIEdgeInsets.zero
         self.selectionStyle = .none
-        self.UserNameText.text = nickName
-        self.StepCount.text = String(stepCount) + " 歩"
-        switch stepCount {
-        case 10000... :
+        self.UserNameText.text = info.user?.nickname
+        let totalDistance = info.health?.totalDistance ?? "0"
+        self.StepCount.text = totalDistance
+        
+        let x = totalDistance.components(separatedBy: " ").first
+        let num = Int(x ?? "0") ?? 0
+        switch num {
+        case 100... :
             self.walkImage.image = walkSpeedFast
-        case 5000... :
+        case 10... :
             self.walkImage.image = walkSpeedNomal
         default:
             self.walkImage.image = walkSpeedSlow
         }
         self.imageView!.contentMode = .scaleAspectFit
-        self.EnagyBurnText.text = enagyBurn + " kcal"
+        self.EnagyBurnText.text = info.health?.totalEnergyBurned
     }
 }

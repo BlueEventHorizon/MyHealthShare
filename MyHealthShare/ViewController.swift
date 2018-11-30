@@ -157,7 +157,7 @@ open class UserCell: UITableViewCell, CellDequeueable
         let totalDistance = info.health?.totalDistance ?? "0"
         self.StepCount.text = totalDistance
         
-        let x = totalDistance.components(separatedBy: " ").first
+        let x = totalDistance.components(separatedBy: ".").first
         let num = Int(x ?? "0") ?? 0
         switch num {
         case 100... :

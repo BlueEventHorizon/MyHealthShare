@@ -1,0 +1,11 @@
+build/
+infer-out/
+Carthage/Checkouts/
+Carthage/Build/
+xcuserdata/
+nguotb/Lib/AWS
+
+AflacApp/Lib/AWS
+R.generated.swift
+Cartfile.resolved
+Pods

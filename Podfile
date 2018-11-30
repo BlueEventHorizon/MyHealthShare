@@ -8,4 +8,5 @@ target 'MyHealthShare' do
   pod 'Firebase/Messaging'
   pod 'Firebase/RemoteConfig'
   pod 'Firebase/Firestore'
+  pod 'SwiftGifOrigin'
 end

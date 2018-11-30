@@ -23,8 +23,13 @@ class ViewController: UIViewController {
     private lazy var healthUtil = {HealthUtil.shared}()
     private lazy var slackUtil = {SlackUtil.shared}()
     
-    var users = [User]()
-    //lazy var viewModel = { return ViewModel() }()
+    struct UserCellInfo {
+        var user: User?
+        var health: HealthData?
+    }
+    
+    var users = [UserCellInfo]()
+    lazy var viewModel = { return ViewModel() }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +42,39 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 60
         
+        // push
+        viewModel.configure()
+        
+        // users
         firebaseUtil.observables.users.subscribe(onNext: {[weak self] (users) in
             guard let _self = self else { return }
             
-            _self.users = users
+            for _user in users
+            {
+                var info = UserCellInfo()
+                info.user = _user
+                _self.users.append(info)
+            }
+            _self.tableView.reloadData()
 
         }).disposed(by: disposeBag)
-        firebaseUtil.readUsers(team_id: "momo")
+        firebaseUtil.readUsers(team_id: "momoyama")
+        
+        // healthData
+        firebaseUtil.observables.healthData.subscribe(onNext: {[weak self] (healthDatas) in
+            guard let _self = self else { return }
 
-
-        //viewModel.configure()
+            for (i, _user) in _self.users.enumerated() {
+                if let _nickname = _user.user?.nickname {
+                    let health = healthDatas.filter{$0.nickname==_nickname}.first
+                    _self.users[i].health = health
+                }
+            }
+            _self.tableView.reloadData()
+            
+        }).disposed(by: disposeBag)
+        
+        firebaseUtil.readHealthData()
     }
 }
 
@@ -85,7 +113,7 @@ extension ViewController: UITableViewDataSource
 {
     public func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell {
         let cell = UserCell.dequeue(from: tableView, for: cellForRowAt)
-        cell.configure(nickName: "ニックネーム", stepCount: 100)
+        cell.configure(nickName: users[cellForRowAt.row].user?.nickname ?? "***", stepCount: 100)
         
         return cell
     }

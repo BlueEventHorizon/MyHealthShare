@@ -66,9 +66,13 @@ open class FirebaseUtil {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                var users = [User]()
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
+                    let user = User(document.data())
+                    users.append(user)
                 }
+                self.observables.usersSubject.onNext(users)
             }
         }
     }
@@ -106,9 +110,9 @@ open class FirebaseUtil {
         }
     }
     
-    func readHealthData(nickName: String)
+    func readHealthData()
     {
-        db.collection(table.healthData.rawValue).whereField(keys.nickname.rawValue, isEqualTo: nickName).getDocuments() { (querySnapshot, err) in
+        db.collection(table.healthData.rawValue).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

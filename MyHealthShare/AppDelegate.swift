@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white] // ナビゲーションタイトルの色変更
 
         FirebaseApp.configure()
+        HealthUtil.shared.auth()
         return true
     }
 

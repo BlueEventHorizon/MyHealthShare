@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var list = [Int]()
+    lazy var viewModel = { return ViewModel() }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
         list.append(0)
         list.append(2)
 
+        viewModel.configure()
     }
 }
 

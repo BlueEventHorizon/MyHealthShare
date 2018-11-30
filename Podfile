@@ -7,4 +7,5 @@ target 'MyHealthShare' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'Firebase/RemoteConfig'
+  pod 'Firebase/Firestore'
 end

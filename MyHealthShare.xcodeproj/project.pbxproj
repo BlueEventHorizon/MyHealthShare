@@ -25,6 +25,7 @@
 		7678CDB421B0E0AD00939C43 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDB121B0E0AD00939C43 /* RxBlocking.framework */; };
 		7678CDB521B0E0AD00939C43 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDB221B0E0AD00939C43 /* RxCocoa.framework */; };
 		7678CDB721B0E3DB00939C43 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDB621B0E3DB00939C43 /* Date+Ext.swift */; };
+		7678CDB921B0EB2300939C43 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDB821B0EB2300939C43 /* ViewModel.swift */; };
 		8C83BE9F5243A7582E805450 /* Pods_MyHealthShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C7B2C0D099AA2C2378B1A2 /* Pods_MyHealthShare.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		7678CDB121B0E0AD00939C43 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		7678CDB221B0E0AD00939C43 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		7678CDB621B0E3DB00939C43 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		7678CDB821B0EB2300939C43 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C8C7B2C0D099AA2C2378B1A2 /* Pods_MyHealthShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHealthShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF4087C49A48DD08D457811 /* Pods-MyHealthShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHealthShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 				7678CDA321B0CF3100939C43 /* MyHealthShare.entitlements */,
 				7678CD7E21B0C86900939C43 /* AppDelegate.swift */,
 				7678CD8021B0C86900939C43 /* ViewController.swift */,
+				7678CDB821B0EB2300939C43 /* ViewModel.swift */,
 				7678CD9E21B0CAFD00939C43 /* HealthUtil.swift */,
 				7678CDA021B0CB0D00939C43 /* SlackUtil.swift */,
 				7678CDA821B0D3B100939C43 /* FirebaseUtil.swift */,
@@ -176,6 +179,7 @@
 				7678CD7921B0C86900939C43 /* Resources */,
 				7678CDA221B0CC8700939C43 /* ShellScript */,
 				ACC79F0A912BDDE7D5B178F2 /* [CP] Embed Pods Frameworks */,
+				D978B41D9F9C3B64A3FE890B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,21 +325,51 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D978B41D9F9C3B64A3FE890B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -346,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7678CDAD21B0D6B200939C43 /* IdentifierGettable.swift in Sources */,
+				7678CDB921B0EB2300939C43 /* ViewModel.swift in Sources */,
 				7678CD9F21B0CAFD00939C43 /* HealthUtil.swift in Sources */,
 				7678CDA921B0D3B100939C43 /* FirebaseUtil.swift in Sources */,
 				7678CDB721B0E3DB00939C43 /* Date+Ext.swift in Sources */,

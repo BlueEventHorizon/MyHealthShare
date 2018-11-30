@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     private lazy var healthUtil = {HealthUtil.shared}()
     private lazy var slackUtil = {SlackUtil.shared}()
     
-    var list = [Int]()
+    var users = [User]()
     //lazy var viewModel = { return ViewModel() }()
     
     override func viewDidLoad() {
@@ -37,8 +37,14 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 60
         
-        list.append(0)
-        list.append(2)
+        firebaseUtil.observables.users.subscribe(onNext: {[weak self] (users) in
+            guard let _self = self else { return }
+            
+            _self.users = users
+
+        }).disposed(by: disposeBag)
+        firebaseUtil.readUsers(team_id: "momo")
+
 
         //viewModel.configure()
     }
@@ -91,7 +97,7 @@ extension ViewController: UITableViewDataSource
     
     // セクション毎のアイテム数
     public func tableView(_ tableView: UITableView, numberOfRowsInSection: Int)  -> Int {
-        return list.count
+        return users.count
     }
 }
 

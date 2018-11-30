@@ -14,4 +14,5 @@ open class HealthUtil {
     static public let shared = HealthUtil()
     private init(){}
 
+
 }

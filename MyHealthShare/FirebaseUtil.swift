@@ -1,5 +1,5 @@
 //
-//  SlackUtil.swift
+//  FirebaseUtil.swift
 //  MyHealthShare
 //
 //  Created by 寺田 克彦 on 2018/11/30.
@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import Firebase
 
-open class SlackUtil {
+open class FirebaseUtil {
     
-    static public let shared = SlackUtil()
+    static public let shared = FirebaseUtil()
     private init(){}
     
-    func send(message: String)
+    func add(nickName: String)
     {
         
     }

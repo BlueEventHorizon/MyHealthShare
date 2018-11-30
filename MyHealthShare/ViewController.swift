@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         tableView.separatorColor = UIColor.clear
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 60
+        tableView.rowHeight = 120
         
         firebaseUtil.observables.users.subscribe(onNext: {[weak self] (users) in
             guard let _self = self else { return }
@@ -85,7 +85,7 @@ extension ViewController: UITableViewDataSource
 {
     public func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell {
         let cell = UserCell.dequeue(from: tableView, for: cellForRowAt)
-        cell.configure(nickName: "ニックネーム", stepCount: 100)
+        cell.configure(nickName: "ニックネーム", stepCount: 50000, enagyBurn: "2400")
         
         return cell
     }
@@ -106,6 +106,7 @@ open class UserCell: UITableViewCell, CellDequeueable
     @IBOutlet weak var UserNameText: UILabel!
     @IBOutlet weak var walkImage: UIImageView!
     @IBOutlet weak var StepCount: UILabel!
+    @IBOutlet weak var EnagyBurnText: UILabel!
     
     let walkSpeedFast = UIImage.gif(name: "animation-walkman0")
     let walkSpeedNomal = UIImage.gif(name: "animation-walkman1")
@@ -121,11 +122,11 @@ open class UserCell: UITableViewCell, CellDequeueable
         // Configure the view for the selected state
     }
     
-    func configure(nickName: String, stepCount: Int) {
+    func configure(nickName: String, stepCount: Int, enagyBurn: String) {
         self.layoutMargins = UIEdgeInsets.zero
         self.selectionStyle = .none
         self.UserNameText.text = nickName
-        self.StepCount.text = String(stepCount) + "歩"
+        self.StepCount.text = String(stepCount) + " 歩"
         switch stepCount {
         case 10000... :
             self.walkImage.image = walkSpeedFast
@@ -135,5 +136,6 @@ open class UserCell: UITableViewCell, CellDequeueable
             self.walkImage.image = walkSpeedSlow
         }
         self.imageView!.contentMode = .scaleAspectFit
+        self.EnagyBurnText.text = enagyBurn + " kcal"
     }
 }

@@ -24,6 +24,8 @@ open class FirebaseUtil {
         case team_id
         case stepCount
         case date
+        case totalDistance
+        case totalEnergyBurned
     }
     
     static public let shared = FirebaseUtil()
@@ -93,12 +95,14 @@ open class FirebaseUtil {
         }
     }
 
-    func addHealthData(nickName: String, stepCount: Int)
+    func addHealthData(nickName: String, stepCount: Int, totalDistance: String, totalEnergyBurned: String)
     {
         var ref: DocumentReference? = nil
         ref = db.collection(table.healthData.rawValue).addDocument(data: [
             keys.nickname.rawValue: nickName,
             keys.stepCount.rawValue: stepCount,
+            keys.totalEnergyBurned.rawValue: totalEnergyBurned,
+            keys.totalDistance.rawValue: totalDistance,
             keys.date.rawValue: Timestamp(date: Date())
             //"date": FieldValue.serverTimestamp()
         ]) { err in
@@ -142,10 +146,14 @@ struct HealthData : Codable
 {
     var nickname : String
     var stepCount : Int?
+    var totalEnergyBurned: String?
+    var totalDistance: String?
     var date: String?
     
     init(_ dic: Dictionary<String, Any>) {
         self.nickname = dic[FirebaseUtil.keys.nickname.rawValue] as! String
         self.stepCount = dic[FirebaseUtil.keys.stepCount.rawValue] as? Int
+        self.totalEnergyBurned = dic[FirebaseUtil.keys.totalEnergyBurned.rawValue] as? String
+        self.totalDistance = dic[FirebaseUtil.keys.totalDistance.rawValue] as? String
     }
 }

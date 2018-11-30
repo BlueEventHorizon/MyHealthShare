@@ -22,8 +22,13 @@ class ViewModel
         healthUtil.observables.workouts.subscribe(onNext: {[weak self] (workouts) in
             guard let _self = self else { return }
             
-            _self.firebaseUtil.addHealthData(nickName: "terada", stepCount: 600)
-            
+            if let workout = workouts.last
+            {
+                let totalDistance = workout.totalDistance?.description ?? ""
+                let totalEnergyBurned = workout.totalEnergyBurned?.description ?? ""
+                
+                _self.firebaseUtil.addHealthData(nickName: "terada", stepCount: 600, totalDistance: totalDistance, totalEnergyBurned: totalEnergyBurned)
+            }
         }).disposed(by: disposeBag)
         
         healthUtil.getWorkouts()

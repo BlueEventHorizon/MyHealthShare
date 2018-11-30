@@ -113,7 +113,7 @@ extension ViewController: UITableViewDataSource
 {
     public func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell {
         let cell = UserCell.dequeue(from: tableView, for: cellForRowAt)
-        cell.configure(nickName: users[cellForRowAt.row].user?.nickname ?? "***", stepCount: 100)
+        cell.configure(nickName: users[cellForRowAt.row].user?.nickname ?? "***", stepCount: 100, enagyBurn: "3000")
         
         return cell
     }

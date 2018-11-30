@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--My Health Share-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyHealthShare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="My Health Share" id="BYZ-38-t0r" customClass="ViewController" customModule="MyHealthShare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="948" y="791"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Health Share-->
         <scene sceneID="4vD-WQ-OIc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KC5-nz-NSL" sceneMemberID="viewController">
+                <navigationController title="My Health Share" automaticallyAdjustsScrollViewInsets="NO" id="KC5-nz-NSL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r3c-3E-hJC">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

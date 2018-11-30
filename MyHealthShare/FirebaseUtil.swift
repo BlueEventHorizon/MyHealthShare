@@ -60,9 +60,9 @@ open class FirebaseUtil {
         }
     }
     
-    func readUsers()
+    func readUsers(team_id: String)
     {
-        db.collection(table.users.rawValue).getDocuments(){ (querySnapshot, err) in
+        db.collection(table.users.rawValue).whereField(keys.team_id.rawValue, isEqualTo: team_id).getDocuments(){ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

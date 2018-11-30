@@ -23,19 +23,28 @@ class ViewController: UIViewController {
     private lazy var healthUtil = {HealthUtil.shared}()
     private lazy var slackUtil = {SlackUtil.shared}()
     
-    var list = [Int]()
+    var users = [User]()
     //lazy var viewModel = { return ViewModel() }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        self.title = "My Health Share"
+        tableView.layoutMargins = UIEdgeInsets.zero // [※1] separatorsを端から端まで伸ばす
+        tableView.separatorInset = UIEdgeInsets.zero // [※1] separatorsを端から端まで伸ばす
+        tableView.separatorColor = UIColor.clear
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 60
         
-        list.append(0)
-        list.append(2)
+        firebaseUtil.observables.users.subscribe(onNext: {[weak self] (users) in
+            guard let _self = self else { return }
+            
+            _self.users = users
+
+        }).disposed(by: disposeBag)
+        firebaseUtil.readUsers(team_id: "momo")
+
 
         //viewModel.configure()
     }
@@ -88,7 +97,7 @@ extension ViewController: UITableViewDataSource
     
     // セクション毎のアイテム数
     public func tableView(_ tableView: UITableView, numberOfRowsInSection: Int)  -> Int {
-        return list.count
+        return users.count
     }
 }
 
@@ -113,6 +122,8 @@ open class UserCell: UITableViewCell, CellDequeueable
     }
     
     func configure(nickName: String, stepCount: Int) {
+        self.layoutMargins = UIEdgeInsets.zero
+        self.selectionStyle = .none
         self.UserNameText.text = nickName
         self.StepCount.text = String(stepCount) + "歩"
         switch stepCount {

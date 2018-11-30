@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6199347F21B0F64F00B3727F /* animation-walkman1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6199347E21B0F64F00B3727F /* animation-walkman1.gif */; };
+		6199348321B1026600B3727F /* animation-walkman0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6199348221B1026600B3727F /* animation-walkman0.gif */; };
+		6199348521B1027B00B3727F /* animation-walkman2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6199348421B1027A00B3727F /* animation-walkman2.gif */; };
 		7678CD7F21B0C86900939C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CD7E21B0C86900939C43 /* AppDelegate.swift */; };
 		7678CD8121B0C86900939C43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CD8021B0C86900939C43 /* ViewController.swift */; };
 		7678CD8421B0C86900939C43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7678CD8221B0C86900939C43 /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 
 /* Begin PBXFileReference section */
 		41736C5ED32937835ED5D940 /* Pods-MyHealthShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHealthShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare.debug.xcconfig"; sourceTree = "<group>"; };
+		6199347E21B0F64F00B3727F /* animation-walkman1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animation-walkman1.gif"; sourceTree = "<group>"; };
+		6199348221B1026600B3727F /* animation-walkman0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "animation-walkman0.gif"; path = "../../Downloads/animation-walkman0.gif"; sourceTree = "<group>"; };
+		6199348421B1027A00B3727F /* animation-walkman2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animation-walkman2.gif"; sourceTree = "<group>"; };
 		7678CD7B21B0C86900939C43 /* MyHealthShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHealthShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7678CD7E21B0C86900939C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7678CD8021B0C86900939C43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +122,9 @@
 		7678CD7221B0C86900939C43 = {
 			isa = PBXGroup;
 			children = (
+				6199347E21B0F64F00B3727F /* animation-walkman1.gif */,
+				6199348421B1027A00B3727F /* animation-walkman2.gif */,
+				6199348221B1026600B3727F /* animation-walkman0.gif */,
 				7678CD7D21B0C86900939C43 /* MyHealthShare */,
 				7678CD9221B0C86C00939C43 /* MyHealthShareTests */,
 				7678CD7C21B0C86900939C43 /* Products */,
@@ -252,6 +261,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6199348521B1027B00B3727F /* animation-walkman2.gif in Resources */,
+				6199347F21B0F64F00B3727F /* animation-walkman1.gif in Resources */,
+				6199348321B1026600B3727F /* animation-walkman0.gif in Resources */,
 				7678CD8921B0C86B00939C43 /* LaunchScreen.storyboard in Resources */,
 				7678CDA721B0D20A00939C43 /* GoogleService-Info.plist in Resources */,
 				7678CD8621B0C86B00939C43 /* Assets.xcassets in Resources */,
@@ -323,6 +335,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -331,6 +344,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

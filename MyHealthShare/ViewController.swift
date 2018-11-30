@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftGifOrigin
 
 
 class ViewController: UIViewController {
@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var allView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    let walkSpeedFast = UIImage.gif(name: "animation-walkman0")
+    let walkSpeedNomal = UIImage.gif(name: "animation-walkman1")
+    let walkSpeedSlow = UIImage.gif(name: "animation-walkman2")
     
     var list = [Int]()
     
@@ -25,6 +28,7 @@ class ViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 60
         
         list.append(0)
         list.append(2)
@@ -68,6 +72,23 @@ extension ViewController: UITableViewDataSource
     public func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell
     {
         let cell = UserCell.dequeue(from: tableView, for: cellForRowAt)
+        
+        // 仮
+        let nickName = "ニックネーム"
+        let stepCount = 100
+        //
+        
+        cell.UserNameText.text = nickName
+        cell.StepCount.text = String(stepCount) + "歩"
+        switch stepCount {
+        case 10000... :
+            cell.walkImage.image = walkSpeedFast
+        case 5000... :
+            cell.walkImage.image = walkSpeedNomal
+        default:
+            cell.walkImage.image = walkSpeedSlow
+        }
+        cell.imageView!.contentMode = .scaleAspectFit
 
         return cell
     }
@@ -87,5 +108,17 @@ extension ViewController: UITableViewDataSource
 
 open class UserCell: UITableViewCell, CellDequeueable
 {
-
+    @IBOutlet weak var UserNameText: UILabel!
+    @IBOutlet weak var walkImage: UIImageView!
+    @IBOutlet weak var StepCount: UILabel!
+    
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override open func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        // Configure the view for the selected state
+    }
 }

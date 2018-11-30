@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftGifOrigin
-
+import RxSwift
 
 class ViewController: UIViewController {
 
@@ -16,12 +16,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var allView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    let walkSpeedFast = UIImage.gif(name: "animation-walkman0")
-    let walkSpeedNomal = UIImage.gif(name: "animation-walkman1")
-    let walkSpeedSlow = UIImage.gif(name: "animation-walkman2")
+
+    private var disposeBag: DisposeBag = DisposeBag()
+    
+    private lazy var firebaseUtil = {FirebaseUtil.shared}()
+    private lazy var healthUtil = {HealthUtil.shared}()
+    private lazy var slackUtil = {SlackUtil.shared}()
     
     var list = [Int]()
-    lazy var viewModel = { return ViewModel() }()
+    //lazy var viewModel = { return ViewModel() }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +37,7 @@ class ViewController: UIViewController {
         list.append(0)
         list.append(2)
 
-        viewModel.configure()
+        //viewModel.configure()
     }
 }
 
@@ -71,39 +74,20 @@ extension ViewController: UITableViewDelegate
 
 extension ViewController: UITableViewDataSource
 {
-    public func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell
-    {
+    public func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell {
         let cell = UserCell.dequeue(from: tableView, for: cellForRowAt)
+        cell.configure(nickName: "ニックネーム", stepCount: 100)
         
-        // 仮
-        let nickName = "ニックネーム"
-        let stepCount = 100
-        //
-        
-        cell.UserNameText.text = nickName
-        cell.StepCount.text = String(stepCount) + "歩"
-        switch stepCount {
-        case 10000... :
-            cell.walkImage.image = walkSpeedFast
-        case 5000... :
-            cell.walkImage.image = walkSpeedNomal
-        default:
-            cell.walkImage.image = walkSpeedSlow
-        }
-        cell.imageView!.contentMode = .scaleAspectFit
-
         return cell
     }
-    
+
     // セクション数
-    public func numberOfSections(in tableView: UITableView) -> Int
-    {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     // セクション毎のアイテム数
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection: Int)  -> Int
-    {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection: Int)  -> Int {
         return list.count
     }
 }
@@ -114,13 +98,31 @@ open class UserCell: UITableViewCell, CellDequeueable
     @IBOutlet weak var walkImage: UIImageView!
     @IBOutlet weak var StepCount: UILabel!
     
+    let walkSpeedFast = UIImage.gif(name: "animation-walkman0")
+    let walkSpeedNomal = UIImage.gif(name: "animation-walkman1")
+    let walkSpeedSlow = UIImage.gif(name: "animation-walkman2")
+    
     override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+    }
+    
+    func configure(nickName: String, stepCount: Int) {
+        self.UserNameText.text = nickName
+        self.StepCount.text = String(stepCount) + "歩"
+        switch stepCount {
+        case 10000... :
+            self.walkImage.image = walkSpeedFast
+        case 5000... :
+            self.walkImage.image = walkSpeedNomal
+        default:
+            self.walkImage.image = walkSpeedSlow
+        }
+        self.imageView!.contentMode = .scaleAspectFit
     }
 }

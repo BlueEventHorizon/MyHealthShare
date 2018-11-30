@@ -35,6 +35,8 @@ class ViewModel
         healthUtil.observables.stepCount.subscribe(onNext: {[weak self] (stepCount) in
             guard let _self = self else { return }
             
+            
+            
         }).disposed(by: disposeBag)
         healthUtil.stepCount()
         

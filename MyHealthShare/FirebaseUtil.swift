@@ -30,11 +30,14 @@ open class FirebaseUtil {
     private init(){}
     
     let db = Firestore.firestore()
-    
+
     public struct Observables {
         
-        let authSubject = PublishSubject<Bool>()
-        var auth: Observable<Bool> { return authSubject }
+        let usersSubject = PublishSubject<[User]>()
+        var users: Observable<[User]> { return usersSubject }
+        
+        let userSubject = PublishSubject<User>()
+        var user: Observable<User> { return userSubject }
 
         let stepCountSubject = PublishSubject<(Date, Int)>()
         var stepCount: Observable<(Date, Int)> { return stepCountSubject }
@@ -57,9 +60,9 @@ open class FirebaseUtil {
         }
     }
     
-    func read(nickName: String)
+    func readUsers()
     {
-        db.collection(table.users.rawValue).whereField(keys.nickname.rawValue, isEqualTo: nickName).getDocuments(){ (querySnapshot, err) in
+        db.collection(table.users.rawValue).getDocuments(){ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -70,6 +73,22 @@ open class FirebaseUtil {
         }
     }
     
+    func read(nickName: String)
+    {
+        db.collection(table.users.rawValue).whereField(keys.nickname.rawValue, isEqualTo: nickName).getDocuments(){ (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    let user = User(document.data())
+                    self.observables.userSubject.onNext(user)
+                }
+            }
+        }
+    }
+
     func addHealthData(nickName: String, stepCount: Int)
     {
         var ref: DocumentReference? = nil
@@ -93,10 +112,34 @@ open class FirebaseUtil {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                 }
             }
         }
+    }
+}
+
+struct User : Codable
+{
+    var nickname : String
+    var team_id : String
+    
+    init(_ dic: Dictionary<String, Any>) {
+        self.nickname = dic[FirebaseUtil.keys.nickname.rawValue] as! String
+        self.team_id = dic[FirebaseUtil.keys.team_id.rawValue] as! String
+    }
+}
+
+struct HealthData : Codable
+{
+    var nickname : String
+    var stepCount : Int?
+    var date: String?
+    
+    init(_ dic: Dictionary<String, Any>) {
+        self.nickname = dic[FirebaseUtil.keys.nickname.rawValue] as! String
+        self.stepCount = dic[FirebaseUtil.keys.stepCount.rawValue] as? Int
     }
 }

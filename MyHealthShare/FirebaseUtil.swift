@@ -33,14 +33,14 @@ open class FirebaseUtil {
 
     public struct Observables {
         
-        let usersSubject = PublishSubject<[User]>()
+        fileprivate let usersSubject = PublishSubject<[User]>()
         var users: Observable<[User]> { return usersSubject }
         
-        let userSubject = PublishSubject<User>()
+        fileprivate let userSubject = PublishSubject<User>()
         var user: Observable<User> { return userSubject }
 
-        let stepCountSubject = PublishSubject<(Date, Int)>()
-        var stepCount: Observable<(Date, Int)> { return stepCountSubject }
+        fileprivate let healthDataSubject = PublishSubject<[HealthData]>()
+        var healthData: Observable<[HealthData]> { return healthDataSubject }
     }
     public let observables = Observables()
     
@@ -112,10 +112,12 @@ open class FirebaseUtil {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                
+                var healthData = [HealthData]()
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
+                    healthData.append(HealthData(document.data()))
                 }
+                self.observables.healthDataSubject.onNext(healthData)
             }
         }
     }

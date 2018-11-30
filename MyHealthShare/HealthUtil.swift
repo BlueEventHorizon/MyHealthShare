@@ -22,13 +22,13 @@ open class HealthUtil {
     
     public struct Observables {
         
-        let authSubject = PublishSubject<Bool>()
+        fileprivate let authSubject = PublishSubject<Bool>()
         var auth: Observable<Bool> { return authSubject }
         
-        let workoutsSubject = PublishSubject<[HKWorkout]>()
+        fileprivate let workoutsSubject = PublishSubject<[HKWorkout]>()
         var workouts: Observable<[HKWorkout]> { return workoutsSubject }
         
-        let stepCountSubject = PublishSubject<(Date, Int)>()
+        fileprivate let stepCountSubject = PublishSubject<(Date, Int)>()
         var stepCount: Observable<(Date, Int)> { return stepCountSubject }
     }
     public let observables = Observables()
@@ -74,7 +74,7 @@ open class HealthUtil {
         healthStore.execute(query)
     }
     
-    public func stepCount(on date: Date) {
+    public func stepCount(on date: Date = Date()) {
         
         let startDay = Date(year: date.year, month: date.month, day: date.day-3, hour: 0, minute: 0, second: 0)
         let timeIntervalSince1970 = startDay.timeIntervalSince1970

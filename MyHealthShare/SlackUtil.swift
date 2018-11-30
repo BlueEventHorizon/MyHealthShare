@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+open class SlackUtil {
+    
+    static public let shared = SlackUtil()
+    private init(){}
+    
+}

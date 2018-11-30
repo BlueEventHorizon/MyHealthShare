@@ -9,3 +9,4 @@ AflacApp/Lib/AWS
 R.generated.swift
 Cartfile.resolved
 Pods
+Podfile.lock

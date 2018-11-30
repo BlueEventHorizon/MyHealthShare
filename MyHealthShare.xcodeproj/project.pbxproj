@@ -16,6 +16,7 @@
 		7678CD9F21B0CAFD00939C43 /* HealthUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CD9E21B0CAFD00939C43 /* HealthUtil.swift */; };
 		7678CDA121B0CB0D00939C43 /* SlackUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDA021B0CB0D00939C43 /* SlackUtil.swift */; };
 		7678CDA521B0CF3100939C43 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDA421B0CF3100939C43 /* HealthKit.framework */; };
+		7678CDA721B0D20A00939C43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7678CDA621B0D20A00939C43 /* GoogleService-Info.plist */; };
 		8C83BE9F5243A7582E805450 /* Pods_MyHealthShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C7B2C0D099AA2C2378B1A2 /* Pods_MyHealthShare.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		7678CDA021B0CB0D00939C43 /* SlackUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackUtil.swift; sourceTree = "<group>"; };
 		7678CDA321B0CF3100939C43 /* MyHealthShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyHealthShare.entitlements; sourceTree = "<group>"; };
 		7678CDA421B0CF3100939C43 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		7678CDA621B0D20A00939C43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8C7B2C0D099AA2C2378B1A2 /* Pods_MyHealthShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHealthShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF4087C49A48DD08D457811 /* Pods-MyHealthShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHealthShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 				7678CD8521B0C86B00939C43 /* Assets.xcassets */,
 				7678CD8721B0C86B00939C43 /* LaunchScreen.storyboard */,
 				7678CD8A21B0C86B00939C43 /* Info.plist */,
+				7678CDA621B0D20A00939C43 /* GoogleService-Info.plist */,
 			);
 			path = MyHealthShare;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7678CD8921B0C86B00939C43 /* LaunchScreen.storyboard in Resources */,
+				7678CDA721B0D20A00939C43 /* GoogleService-Info.plist in Resources */,
 				7678CD8621B0C86B00939C43 /* Assets.xcassets in Resources */,
 				7678CD8421B0C86900939C43 /* Main.storyboard in Resources */,
 			);

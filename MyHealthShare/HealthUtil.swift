@@ -7,3 +7,11 @@
 //
 
 import HealthKit
+
+open class HealthUtil {
+    
+    private let healthStore = HKHealthStore()
+    static public let shared = HealthUtil()
+    private init(){}
+
+}

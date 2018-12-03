@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import SwiftGifOrigin
+import RxSwift
 
-
+struct UserCellInfo {
+    var user: User?
+    var health: HealthData?
+}
 
 class ViewController: UIViewController {
 
@@ -16,19 +21,60 @@ class ViewController: UIViewController {
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var allView: UIView!
     @IBOutlet weak var tableView: UITableView!
+
+    private var disposeBag: DisposeBag = DisposeBag()
     
-    var list = [Int]()
+    private lazy var firebaseUtil = {FirebaseUtil.shared}()
+    private lazy var healthUtil = {HealthUtil.shared}()
+    private lazy var slackUtil = {SlackUtil.shared}()
+
+    var users = [UserCellInfo]()
+    lazy var viewModel = { return ViewModel() }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        self.title = "My Health Share"
+        tableView.layoutMargins = UIEdgeInsets.zero // [※1] separatorsを端から端まで伸ばす
+        tableView.separatorInset = UIEdgeInsets.zero // [※1] separatorsを端から端まで伸ばす
+        tableView.separatorColor = UIColor.clear
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 120
         
-        list.append(0)
-        list.append(2)
+        // push
+        viewModel.configure()
+        
+        // users
+        firebaseUtil.observables.users.subscribe(onNext: {[weak self] (users) in
+            guard let _self = self else { return }
+            
+            for _user in users
+            {
+                var info = UserCellInfo()
+                info.user = _user
+                _self.users.append(info)
+            }
+            _self.tableView.reloadData()
 
+        }).disposed(by: disposeBag)
+        firebaseUtil.readUsers(team_id: "momoyama")
+        
+        // healthData
+        firebaseUtil.observables.healthData.subscribe(onNext: {[weak self] (healthDatas) in
+            guard let _self = self else { return }
+
+            for (i, _user) in _self.users.enumerated() {
+                if let _nickname = _user.user?.nickname {
+                    let health = healthDatas.filter{$0.nickname==_nickname}.first
+                    _self.users[i].health = health
+                }
+            }
+            _self.tableView.reloadData()
+            
+        }).disposed(by: disposeBag)
+        
+        firebaseUtil.readHealthData()
     }
 }
 
@@ -65,27 +111,63 @@ extension ViewController: UITableViewDelegate
 
 extension ViewController: UITableViewDataSource
 {
-    public func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell
-    {
+    public func tableView(_ tableView: UITableView, cellForRowAt: IndexPath) -> UITableViewCell {
         let cell = UserCell.dequeue(from: tableView, for: cellForRowAt)
-
+        cell.configure(users[cellForRowAt.row])
+        
         return cell
     }
-    
+
     // セクション数
-    public func numberOfSections(in tableView: UITableView) -> Int
-    {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     // セクション毎のアイテム数
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection: Int)  -> Int
-    {
-        return list.count
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection: Int)  -> Int {
+        return users.count
     }
 }
 
 open class UserCell: UITableViewCell, CellDequeueable
 {
+    @IBOutlet weak var UserNameText: UILabel!
+    @IBOutlet weak var walkImage: UIImageView!
+    @IBOutlet weak var StepCount: UILabel!
+    @IBOutlet weak var EnagyBurnText: UILabel!
+    
+    let walkSpeedFast = UIImage.gif(name: "animation-walkman0")
+    let walkSpeedNomal = UIImage.gif(name: "animation-walkman1")
+    let walkSpeedSlow = UIImage.gif(name: "animation-walkman2")
+    
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
 
+    override open func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        // Configure the view for the selected state
+    }
+    
+    func configure(_ info: UserCellInfo) {
+        self.layoutMargins = UIEdgeInsets.zero
+        self.selectionStyle = .none
+        self.UserNameText.text = info.user?.nickname
+        let totalDistance = info.health?.totalDistance ?? "0"
+        self.StepCount.text = totalDistance
+        
+        let x = totalDistance.components(separatedBy: ".").first
+        let num = Int(x ?? "0") ?? 0
+        switch num {
+        case 100... :
+            self.walkImage.image = walkSpeedFast
+        case 10... :
+            self.walkImage.image = walkSpeedNomal
+        default:
+            self.walkImage.image = walkSpeedSlow
+        }
+        self.imageView!.contentMode = .scaleAspectFit
+        self.EnagyBurnText.text = info.health?.totalEnergyBurned
+    }
 }

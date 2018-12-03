@@ -13,11 +13,21 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    struct Color
+    {
+        static let blue: UIColor = #colorLiteral(red: 0, green: 0.612, blue: 0.87, alpha: 1)        // #colorLiteral(red: 0, green: 0.612, blue: 0.87, alpha: 1)
+        static let green: UIColor = #colorLiteral(red: 0.4274509804, green: 0.7568627451, blue: 0.6196078431, alpha: 1)         // #colorLiteral(red: Float(0x33)/255.0, green: 0.4666666667, blue: 0, alpha: 1)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
+        UINavigationBar.appearance().tintColor = UIColor.white // ナビゲーションアイテムの色変更
+        UINavigationBar.appearance().barTintColor = UIColor.blue // ナビゲーションバーの色変更
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white] // ナビゲーションタイトルの色変更
+
         FirebaseApp.configure()
+        HealthUtil.shared.auth()
         return true
     }
 

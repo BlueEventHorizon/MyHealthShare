@@ -10,6 +10,15 @@
 		7616B89321B115DE007921AB /* animation-walkman2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7616B89021B115DE007921AB /* animation-walkman2.gif */; };
 		7616B89421B115DE007921AB /* animation-walkman1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7616B89121B115DE007921AB /* animation-walkman1.gif */; };
 		7616B89521B115DE007921AB /* animation-walkman0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7616B89221B115DE007921AB /* animation-walkman0.gif */; };
+		7650B59621BA7C50000EF6B3 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7650B59421BA7C50000EF6B3 /* Interface.storyboard */; };
+		7650B59821BA7C51000EF6B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7650B59721BA7C51000EF6B3 /* Assets.xcassets */; };
+		7650B59F21BA7C52000EF6B3 /* MyHealthShareWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7650B59E21BA7C51000EF6B3 /* MyHealthShareWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7650B5A421BA7C52000EF6B3 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7650B5A321BA7C52000EF6B3 /* InterfaceController.swift */; };
+		7650B5A621BA7C52000EF6B3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7650B5A521BA7C52000EF6B3 /* ExtensionDelegate.swift */; };
+		7650B5A821BA7C52000EF6B3 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7650B5A721BA7C52000EF6B3 /* NotificationController.swift */; };
+		7650B5AA21BA7C52000EF6B3 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7650B5A921BA7C52000EF6B3 /* ComplicationController.swift */; };
+		7650B5AC21BA7C52000EF6B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7650B5AB21BA7C52000EF6B3 /* Assets.xcassets */; };
+		7650B5B121BA7C52000EF6B3 /* MyHealthShareWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7650B59221BA7C4F000EF6B3 /* MyHealthShareWatch.app */; };
 		7678CD7F21B0C86900939C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CD7E21B0C86900939C43 /* AppDelegate.swift */; };
 		7678CD8121B0C86900939C43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CD8021B0C86900939C43 /* ViewController.swift */; };
 		7678CD8421B0C86900939C43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7678CD8221B0C86900939C43 /* Main.storyboard */; };
@@ -33,6 +42,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7650B5A021BA7C52000EF6B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7678CD7321B0C86900939C43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7650B59D21BA7C51000EF6B3;
+			remoteInfo = "MyHealthShareWatch Extension";
+		};
+		7650B5AF21BA7C52000EF6B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7678CD7321B0C86900939C43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7650B59121BA7C4F000EF6B3;
+			remoteInfo = MyHealthShareWatch;
+		};
 		7678CD9021B0C86C00939C43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7678CD7321B0C86900939C43 /* Project object */;
@@ -42,11 +65,48 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7650B5B721BA7C52000EF6B3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7650B59F21BA7C52000EF6B3 /* MyHealthShareWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7650B5B921BA7C52000EF6B3 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				7650B5B121BA7C52000EF6B3 /* MyHealthShareWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		41736C5ED32937835ED5D940 /* Pods-MyHealthShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHealthShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare.debug.xcconfig"; sourceTree = "<group>"; };
 		7616B89021B115DE007921AB /* animation-walkman2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animation-walkman2.gif"; sourceTree = "<group>"; };
 		7616B89121B115DE007921AB /* animation-walkman1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animation-walkman1.gif"; sourceTree = "<group>"; };
 		7616B89221B115DE007921AB /* animation-walkman0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animation-walkman0.gif"; sourceTree = "<group>"; };
+		7650B59221BA7C4F000EF6B3 /* MyHealthShareWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHealthShareWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7650B59521BA7C50000EF6B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		7650B59721BA7C51000EF6B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7650B59921BA7C51000EF6B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7650B59E21BA7C51000EF6B3 /* MyHealthShareWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MyHealthShareWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7650B5A321BA7C52000EF6B3 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		7650B5A521BA7C52000EF6B3 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		7650B5A721BA7C52000EF6B3 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		7650B5A921BA7C52000EF6B3 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		7650B5AB21BA7C52000EF6B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7650B5AD21BA7C52000EF6B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7650B5AE21BA7C52000EF6B3 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		7678CD7B21B0C86900939C43 /* MyHealthShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHealthShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7678CD7E21B0C86900939C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7678CD8021B0C86900939C43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +136,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7650B59B21BA7C51000EF6B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7678CD7821B0C86900939C43 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,11 +188,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7650B59321BA7C50000EF6B3 /* MyHealthShareWatch */ = {
+			isa = PBXGroup;
+			children = (
+				7650B59421BA7C50000EF6B3 /* Interface.storyboard */,
+				7650B59721BA7C51000EF6B3 /* Assets.xcassets */,
+				7650B59921BA7C51000EF6B3 /* Info.plist */,
+			);
+			path = MyHealthShareWatch;
+			sourceTree = "<group>";
+		};
+		7650B5A221BA7C52000EF6B3 /* MyHealthShareWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7650B5A321BA7C52000EF6B3 /* InterfaceController.swift */,
+				7650B5A521BA7C52000EF6B3 /* ExtensionDelegate.swift */,
+				7650B5A721BA7C52000EF6B3 /* NotificationController.swift */,
+				7650B5A921BA7C52000EF6B3 /* ComplicationController.swift */,
+				7650B5AB21BA7C52000EF6B3 /* Assets.xcassets */,
+				7650B5AD21BA7C52000EF6B3 /* Info.plist */,
+				7650B5AE21BA7C52000EF6B3 /* PushNotificationPayload.apns */,
+			);
+			path = "MyHealthShareWatch Extension";
+			sourceTree = "<group>";
+		};
 		7678CD7221B0C86900939C43 = {
 			isa = PBXGroup;
 			children = (
 				7678CD7D21B0C86900939C43 /* MyHealthShare */,
 				7678CD9221B0C86C00939C43 /* MyHealthShareTests */,
+				7650B59321BA7C50000EF6B3 /* MyHealthShareWatch */,
+				7650B5A221BA7C52000EF6B3 /* MyHealthShareWatch Extension */,
 				7678CD7C21B0C86900939C43 /* Products */,
 				333F1785D67648522B02B84F /* Pods */,
 				44C58AC0F6C0FCEA7A377734 /* Frameworks */,
@@ -137,6 +230,8 @@
 			children = (
 				7678CD7B21B0C86900939C43 /* MyHealthShare.app */,
 				7678CD8F21B0C86C00939C43 /* MyHealthShareTests.xctest */,
+				7650B59221BA7C4F000EF6B3 /* MyHealthShareWatch.app */,
+				7650B59E21BA7C51000EF6B3 /* MyHealthShareWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,6 +273,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7650B59121BA7C4F000EF6B3 /* MyHealthShareWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7650B5B821BA7C52000EF6B3 /* Build configuration list for PBXNativeTarget "MyHealthShareWatch" */;
+			buildPhases = (
+				7650B59021BA7C4F000EF6B3 /* Resources */,
+				7650B5B721BA7C52000EF6B3 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7650B5A121BA7C52000EF6B3 /* PBXTargetDependency */,
+			);
+			name = MyHealthShareWatch;
+			productName = MyHealthShareWatch;
+			productReference = 7650B59221BA7C4F000EF6B3 /* MyHealthShareWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		7650B59D21BA7C51000EF6B3 /* MyHealthShareWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7650B5B621BA7C52000EF6B3 /* Build configuration list for PBXNativeTarget "MyHealthShareWatch Extension" */;
+			buildPhases = (
+				7650B59A21BA7C51000EF6B3 /* Sources */,
+				7650B59B21BA7C51000EF6B3 /* Frameworks */,
+				7650B59C21BA7C51000EF6B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MyHealthShareWatch Extension";
+			productName = "MyHealthShareWatch Extension";
+			productReference = 7650B59E21BA7C51000EF6B3 /* MyHealthShareWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		7678CD7A21B0C86900939C43 /* MyHealthShare */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7678CD9821B0C86C00939C43 /* Build configuration list for PBXNativeTarget "MyHealthShare" */;
@@ -189,10 +318,12 @@
 				7678CDA221B0CC8700939C43 /* ShellScript */,
 				ACC79F0A912BDDE7D5B178F2 /* [CP] Embed Pods Frameworks */,
 				D978B41D9F9C3B64A3FE890B /* [CP] Copy Pods Resources */,
+				7650B5B921BA7C52000EF6B3 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7650B5B021BA7C52000EF6B3 /* PBXTargetDependency */,
 			);
 			name = MyHealthShare;
 			productName = MyHealthShare;
@@ -227,6 +358,12 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "beowulf-tech";
 				TargetAttributes = {
+					7650B59121BA7C4F000EF6B3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					7650B59D21BA7C51000EF6B3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					7678CD7A21B0C86900939C43 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
@@ -256,11 +393,30 @@
 			targets = (
 				7678CD7A21B0C86900939C43 /* MyHealthShare */,
 				7678CD8E21B0C86C00939C43 /* MyHealthShareTests */,
+				7650B59121BA7C4F000EF6B3 /* MyHealthShareWatch */,
+				7650B59D21BA7C51000EF6B3 /* MyHealthShareWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7650B59021BA7C4F000EF6B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7650B59821BA7C51000EF6B3 /* Assets.xcassets in Resources */,
+				7650B59621BA7C50000EF6B3 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7650B59C21BA7C51000EF6B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7650B5AC21BA7C52000EF6B3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7678CD7921B0C86900939C43 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +545,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7650B59A21BA7C51000EF6B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7650B5A821BA7C52000EF6B3 /* NotificationController.swift in Sources */,
+				7650B5AA21BA7C52000EF6B3 /* ComplicationController.swift in Sources */,
+				7650B5A621BA7C52000EF6B3 /* ExtensionDelegate.swift in Sources */,
+				7650B5A421BA7C52000EF6B3 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7678CD7721B0C86900939C43 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,6 +583,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7650B5A121BA7C52000EF6B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7650B59D21BA7C51000EF6B3 /* MyHealthShareWatch Extension */;
+			targetProxy = 7650B5A021BA7C52000EF6B3 /* PBXContainerItemProxy */;
+		};
+		7650B5B021BA7C52000EF6B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7650B59121BA7C4F000EF6B3 /* MyHealthShareWatch */;
+			targetProxy = 7650B5AF21BA7C52000EF6B3 /* PBXContainerItemProxy */;
+		};
 		7678CD9121B0C86C00939C43 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7678CD7A21B0C86900939C43 /* MyHealthShare */;
@@ -424,6 +601,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7650B59421BA7C50000EF6B3 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7650B59521BA7C50000EF6B3 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		7678CD8221B0C86900939C43 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,6 +628,88 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7650B5B221BA7C52000EF6B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D6A5KP29BP;
+				IBSC_MODULE = MyHealthShareWatch_Extension;
+				INFOPLIST_FILE = MyHealthShareWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.beowulf-tech.MyHealthShare.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		7650B5B321BA7C52000EF6B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D6A5KP29BP;
+				IBSC_MODULE = MyHealthShareWatch_Extension;
+				INFOPLIST_FILE = MyHealthShareWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.beowulf-tech.MyHealthShare.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		7650B5B421BA7C52000EF6B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D6A5KP29BP;
+				INFOPLIST_FILE = "MyHealthShareWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.beowulf-tech.MyHealthShare.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		7650B5B521BA7C52000EF6B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D6A5KP29BP;
+				INFOPLIST_FILE = "MyHealthShareWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.beowulf-tech.MyHealthShare.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
 		7678CD9621B0C86C00939C43 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -652,6 +919,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7650B5B621BA7C52000EF6B3 /* Build configuration list for PBXNativeTarget "MyHealthShareWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7650B5B421BA7C52000EF6B3 /* Debug */,
+				7650B5B521BA7C52000EF6B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7650B5B821BA7C52000EF6B3 /* Build configuration list for PBXNativeTarget "MyHealthShareWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7650B5B221BA7C52000EF6B3 /* Debug */,
+				7650B5B321BA7C52000EF6B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7678CD7621B0C86900939C43 /* Build configuration list for PBXProject "MyHealthShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -8,6 +8,8 @@
 
 import ClockKit
 
+// reloadTimeline
+// extendTimeline
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     

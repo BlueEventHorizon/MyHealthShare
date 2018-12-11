@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520532FF21C0298E00320727 /* CoreMotionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520532FE21C0298E00320727 /* CoreMotionUtil.swift */; };
 		7616B89321B115DE007921AB /* animation-walkman2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7616B89021B115DE007921AB /* animation-walkman2.gif */; };
 		7616B89421B115DE007921AB /* animation-walkman1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7616B89121B115DE007921AB /* animation-walkman1.gif */; };
 		7616B89521B115DE007921AB /* animation-walkman0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7616B89221B115DE007921AB /* animation-walkman0.gif */; };
@@ -27,18 +28,15 @@
 		7678CD9421B0C86C00939C43 /* MyHealthShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CD9321B0C86C00939C43 /* MyHealthShareTests.swift */; };
 		7678CD9F21B0CAFD00939C43 /* HealthUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CD9E21B0CAFD00939C43 /* HealthUtil.swift */; };
 		7678CDA121B0CB0D00939C43 /* SlackUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDA021B0CB0D00939C43 /* SlackUtil.swift */; };
-		7678CDA521B0CF3100939C43 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDA421B0CF3100939C43 /* HealthKit.framework */; };
 		7678CDA721B0D20A00939C43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7678CDA621B0D20A00939C43 /* GoogleService-Info.plist */; };
 		7678CDA921B0D3B100939C43 /* FirebaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDA821B0D3B100939C43 /* FirebaseUtil.swift */; };
 		7678CDAB21B0D68E00939C43 /* CellDequeueable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDAA21B0D68E00939C43 /* CellDequeueable.swift */; };
 		7678CDAD21B0D6B200939C43 /* IdentifierGettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDAC21B0D6B200939C43 /* IdentifierGettable.swift */; };
-		7678CDAF21B0E09100939C43 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDAE21B0E09000939C43 /* Alamofire.framework */; };
 		7678CDB321B0E0AD00939C43 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDB021B0E0AD00939C43 /* RxSwift.framework */; };
 		7678CDB421B0E0AD00939C43 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDB121B0E0AD00939C43 /* RxBlocking.framework */; };
 		7678CDB521B0E0AD00939C43 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7678CDB221B0E0AD00939C43 /* RxCocoa.framework */; };
 		7678CDB721B0E3DB00939C43 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDB621B0E3DB00939C43 /* Date+Ext.swift */; };
 		7678CDB921B0EB2300939C43 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678CDB821B0EB2300939C43 /* ViewModel.swift */; };
-		8C83BE9F5243A7582E805450 /* Pods_MyHealthShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C7B2C0D099AA2C2378B1A2 /* Pods_MyHealthShare.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +90,7 @@
 
 /* Begin PBXFileReference section */
 		41736C5ED32937835ED5D940 /* Pods-MyHealthShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHealthShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyHealthShare/Pods-MyHealthShare.debug.xcconfig"; sourceTree = "<group>"; };
+		520532FE21C0298E00320727 /* CoreMotionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionUtil.swift; sourceTree = "<group>"; };
 		7616B89021B115DE007921AB /* animation-walkman2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animation-walkman2.gif"; sourceTree = "<group>"; };
 		7616B89121B115DE007921AB /* animation-walkman1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animation-walkman1.gif"; sourceTree = "<group>"; };
 		7616B89221B115DE007921AB /* animation-walkman0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "animation-walkman0.gif"; sourceTree = "<group>"; };
@@ -150,9 +149,6 @@
 				7678CDB321B0E0AD00939C43 /* RxSwift.framework in Frameworks */,
 				7678CDB421B0E0AD00939C43 /* RxBlocking.framework in Frameworks */,
 				7678CDB521B0E0AD00939C43 /* RxCocoa.framework in Frameworks */,
-				7678CDAF21B0E09100939C43 /* Alamofire.framework in Frameworks */,
-				8C83BE9F5243A7582E805450 /* Pods_MyHealthShare.framework in Frameworks */,
-				7678CDA521B0CF3100939C43 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +240,7 @@
 				7678CD8021B0C86900939C43 /* ViewController.swift */,
 				7678CDB821B0EB2300939C43 /* ViewModel.swift */,
 				7678CD9E21B0CAFD00939C43 /* HealthUtil.swift */,
+				520532FE21C0298E00320727 /* CoreMotionUtil.swift */,
 				7678CDA021B0CB0D00939C43 /* SlackUtil.swift */,
 				7678CDA821B0D3B100939C43 /* FirebaseUtil.swift */,
 				7678CDAA21B0D68E00939C43 /* CellDequeueable.swift */,
@@ -566,6 +563,7 @@
 				7678CDA921B0D3B100939C43 /* FirebaseUtil.swift in Sources */,
 				7678CDB721B0E3DB00939C43 /* Date+Ext.swift in Sources */,
 				7678CD8121B0C86900939C43 /* ViewController.swift in Sources */,
+				520532FF21C0298E00320727 /* CoreMotionUtil.swift in Sources */,
 				7678CDA121B0CB0D00939C43 /* SlackUtil.swift in Sources */,
 				7678CDAB21B0D68E00939C43 /* CellDequeueable.swift in Sources */,
 				7678CD7F21B0C86900939C43 /* AppDelegate.swift in Sources */,

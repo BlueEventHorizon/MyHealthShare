@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         viewModel.configure()
         
         // healthData
-        firebaseUtil.observables.healthData.subscribe(onNext: {[weak self] (healthDatas) in
+        firebaseUtil.rx.healthData.subscribe(onNext: {[weak self] (healthDatas) in
             guard let _self = self else { return }
             
             for (i, _user) in _self.users.enumerated() {
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         // users
-        firebaseUtil.observables.users.subscribe(onNext: {[weak self] (users) in
+        firebaseUtil.rx.users.subscribe(onNext: {[weak self] (users) in
             guard let _self = self else { return }
             
             for _user in users

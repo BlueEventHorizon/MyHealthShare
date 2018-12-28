@@ -28,6 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
         HealthUtil.shared.auth()
+        
+        let info = SlackUtil.SlackInfo(title: "k_terada", webhookUrl: incomingWebHook, message: "", slackIcon: ":winteriscomig:", authorName: "k_terada", authorIcon: "https://qiita-image-store.s3.amazonaws.com/0/37634/profile-images/1535170441")
+        SlackUtil.shared.send(info: info) { (result) in
+            //
+        }
+        
         return true
     }
 

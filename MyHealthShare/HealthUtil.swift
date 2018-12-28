@@ -31,7 +31,7 @@ open class HealthUtil {
         fileprivate let stepCountSubject = PublishSubject<(Date, Int)>()
         var stepCount: Observable<(Date, Int)> { return stepCountSubject }
     }
-    public let observables = Observables()
+    public let rx = Observables()
     
     public func auth() {
         
@@ -41,7 +41,7 @@ open class HealthUtil {
             ]
         
         healthStore.requestAuthorization(toShare: nil, read: readDataTypes) { (success, error) in
-            self.observables.authSubject.onNext(success)
+            self.rx.authSubject.onNext(success)
         }
     }
     
@@ -52,7 +52,7 @@ open class HealthUtil {
         let sampleQuery = HKSampleQuery(sampleType: HKWorkoutType.workoutType(), predicate: predicate, limit: 0, sortDescriptors: [sortDescriptor]) { (sampleQuery, results, error) in
             if let _results = results as? [HKWorkout]
             {
-                self.observables.workoutsSubject.onNext(_results)
+                self.rx.workoutsSubject.onNext(_results)
             }
         }
         self.healthStore.execute(sampleQuery)
@@ -100,7 +100,7 @@ open class HealthUtil {
                 }
             }
             // 合計歩数をコールバック関数へ返す
-            self.observables.stepCountSubject.onNext((date, stepCount))
+            self.rx.stepCountSubject.onNext((date, stepCount))
         }
         
         healthStore.execute(query)

@@ -19,7 +19,7 @@ class ViewModel
     
     func configure()
     {
-        healthUtil.observables.workouts.subscribe(onNext: {[weak self] (workouts) in
+        healthUtil.rx.workouts.subscribe(onNext: {[weak self] (workouts) in
             guard let _self = self else { return }
             
             if let workout = workouts.last
@@ -32,5 +32,10 @@ class ViewModel
         }).disposed(by: disposeBag)
         
         healthUtil.getWorkouts()
+        
+        healthUtil.rx.stepCount.subscribe(onNext: { (stepCount) in
+            //
+        })
+        healthUtil.stepCount()
     }
 }

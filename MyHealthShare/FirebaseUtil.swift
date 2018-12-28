@@ -44,7 +44,7 @@ open class FirebaseUtil {
         fileprivate let healthDataSubject = PublishSubject<[HealthData]>()
         var healthData: Observable<[HealthData]> { return healthDataSubject }
     }
-    public let observables = Observables()
+    public let rx = Observables()
     
     
     func add(nickName: String, team_id: String)
@@ -74,7 +74,7 @@ open class FirebaseUtil {
                     let user = User(document.data())
                     users.append(user)
                 }
-                self.observables.usersSubject.onNext(users)
+                self.rx.usersSubject.onNext(users)
             }
         }
     }
@@ -89,7 +89,7 @@ open class FirebaseUtil {
                     print("\(document.documentID) => \(document.data())")
                     
                     let user = User(document.data())
-                    self.observables.userSubject.onNext(user)
+                    self.rx.userSubject.onNext(user)
                 }
             }
         }
@@ -125,7 +125,7 @@ open class FirebaseUtil {
                     print("\(document.documentID) => \(document.data())")
                     healthData.append(HealthData(document.data()))
                 }
-                self.observables.healthDataSubject.onNext(healthData)
+                self.rx.healthDataSubject.onNext(healthData)
             }
         }
     }
